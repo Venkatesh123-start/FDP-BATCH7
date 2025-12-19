@@ -44,7 +44,6 @@ lerna-debug.log*
 coverage/
 .nyc_output/
 *.lcov
-.cache/
 
 # Temporary files
 tmp/
@@ -52,7 +51,6 @@ temp/
 *.tmp
 
 # OS files
-.DS_Store
 Thumbs.db
 Desktop.ini
 
@@ -67,7 +65,6 @@ Desktop.ini
 # Backup files
 *.bak
 *.backup
-*~
 
 # Database files
 *.sqlite
