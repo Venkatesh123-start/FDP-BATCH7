@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Learning Hub - Beginner Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: calc(100vh - 200px);
+        }
+
+        .sidebar {
+            width: 25%;
+            background: #f5f5f5;
+            padding: 30px 20px;
+            border-right: 2px solid #e0e0e0;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .sidebar h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .lesson-nav {
+            list-style: none;
+        }
+
+        .lesson-nav li {
+            margin-bottom: 10px;
+        }
+
+        .lesson-nav button {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .lesson-nav button:hover {
+            border-color: #667eea;
+            color: #667eea;
+            background: #f9f9ff;
+        }
+
+        .lesson-nav button.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .content {
+            width: 75%;
+            padding: 40px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .lesson {
+            display: none;
+        }
+
+        .lesson.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lesson h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .lesson h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .lesson p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #667eea;
+        }
+
+        .code-block code {
+            display: block;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .example-box {
+            background: #f0f4ff;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .example-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .quiz-question {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .quiz-question p {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .quiz-option {
+            margin: 10px 0;
+        }
+
+        .quiz-option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .quiz-option label {
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .submit-btn, .run-btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        .submit-btn:hover, .run-btn:hover {
+            background: #764ba2;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .interactive-demo {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .demo-output {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            min-height: 80px;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .key-point {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .key-point strong {
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Web Development Learning Hub</h1>
+            <p>Master the fundamentals of HTML, CSS, and JavaScript</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>📚 Lessons</h2>
+                <ul class="lesson-nav">
+                    <li><button class="nav-btn active" data-lesson="intro">Introduction</button></li>
+                    <li><button class="nav-btn" data-lesson="html-basics">HTML Basics</button></li>
+                    <li><button class="nav-btn" data-lesson="html-elements">HTML Elements</button></li>
+                    <li><button class="nav-btn" data-lesson="css-basics">CSS Basics</button></li>
+                    <li><button class="nav-btn" data-lesson="css-properties">CSS Properties</button></li>
+                    <li><button class="nav-btn" data-lesson="js-basics">JavaScript Basics</button></li>
+                    <li><button class="nav-btn" data-lesson="js-dom">JavaScript & DOM</button></li>
+                    <li><button class="nav-btn" data-lesson="quiz">Final Quiz</button></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <!-- Lesson 1: Introduction -->
+                <div class="lesson active" id="intro">
+                    <h2>Welcome to Web Development!</h2>
+                    <p>Hello! 👋 This is your beginner-friendly guide to web development. In this course, you'll learn the three fundamental technologies that make up every website:</p>
+                    
+                    <h3>The Three Pillars of Web Development</h3>
+                    <ol>
+                        <li><strong>HTML (HyperText Markup Language)</strong> - Provides the structure and content of web pages</li>
+                        <li><strong>CSS (Cascading Style Sheets)</strong> - Adds styling and layout to make pages beautiful</li>
+                        <li><strong>JavaScript</strong> - Adds interactivity and dynamic behavior</li>
+                    </ol>
+
+                    <div class="example-box">
+                        <h4>📌 Think of it like building a house:</h4>
+                        <ul>
+                            <li><strong>HTML</strong> = The walls, rooms, and structure</li>
+                            <li><strong>CSS</strong> = The paint, furniture, and decoration</li>
+                            <li><strong>JavaScript</strong> = The electricity, doors, and automation</li>
+                        </ul>
+                    </div>
+
+                    <h3>What You'll Learn</h3>
+                    <p>By the end of this course, you'll be able to:</p>
+                    <ul>
+                        <li>Write semantic HTML code</li>
+                        <li>Style elements using CSS</li>
+                        <li>Create interactive features with JavaScript</li>
+                        <li>Understand how websites work</li>
+                    </ul>
+
+                    <div class="key-point">
+                        <strong>💡 Tip:</strong> Don't worry if things seem confusing at first. Web development is best learned by doing. Read the examples, try to understand them, and experiment!
+                    </div>
+
+                    <p style="margin-top: 30px; font-size: 1.1em;"><strong>Ready to start? Click on "HTML Basics" in the sidebar! →</strong></p>
+                </div>
+
+                <!-- Lesson 2: HTML Basics -->
+                <div class="lesson" id="html-basics">
+                    <h2>HTML Basics</h2>
+                    <p>HTML is the language used to create the structure of web pages. Every website starts with HTML!</p>
+
+                    <h3>What is HTML?</h3>
+                    <p>HTML stands for <strong>HyperText Markup Language</strong>. It uses "tags" (enclosed in angle brackets) to tell browsers what to display.</p>
+
+                    <h3>Basic HTML Structure</h3>
+                    <p>Every HTML document follows this structure:</p>
+                    <div class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></div>
+
+                    <div class="example-box">
+                        <h4>🔍 Let's break it down:</h4>
+                        <ul>
+                            <li><code>&lt;!DOCTYPE html&gt;</code> - Tells the browser this is an HTML5 document</li>
+                            <li><code>&lt;html&gt;</code> - The root element containing everything</li>
+                            <li><code>&lt;head&gt;</code> - Contains metadata (title, links, scripts)</li>
+                            <li><code>&lt;body&gt;</code> - Contains the visible content</li>
+                        </ul>
+                    </div>
+
+                    <h3>HTML Tags</h3>
+                    <p>Tags come in pairs: an opening tag and a closing tag. The content goes between them:</p>
+                    <div class="code-block"><code>&lt;tagname&gt;content&lt;/tagname&gt;</code></div>
+
+                    <div class="example-box">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li><code>&lt;h1&gt;This is a heading&lt;/h1&gt;</code></li>
+                            <li><code>&lt;p&gt;This is a paragraph&lt;/p&gt;</code></li>
+                            <li><code>&lt;a href="url"&gt;This is a link&lt;/a&gt;</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>💡 Important:</strong> Most tags need to be closed with a closing tag (like &lt;/p&gt;). Forgetting to close tags is one of the most common mistakes!
+                    </div>
+                </div>
+
+                <!-- Lesson 3: HTML Elements -->
+                <div class="lesson" id="html-elements">
+                    <h2>Common HTML Elements</h2>
+                    <p>Let's learn about the most commonly used HTML elements for creating web pages.</p>
+
+                    <h3>Headings</h3>
+                    <p>Headings help organize content. There are 6 levels (h1 to h6):</p>
+                    <div class="code-block"><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Sub-subheading&lt;/h3&gt;</code></div>
+
+                    <h3>Paragraphs</h3>
+                    <p>Use the <code>&lt;p&gt;</code> tag for text content:</p>
+                    <div class="code-block"><code>&lt;p&gt;This is a paragraph of text.&lt;/p&gt;</code></div>
+
+                    <h3>Links</h3>
+                    <p>Create links with the <code>&lt;a&gt;</code> tag:</p>
+                    <div class="code-block"><code>&lt;a href="https://www.example.com"&gt;Click here&lt;/a&gt;</code></div>
+
+                    <h3>Images</h3>
+                    <p>Add images with the <code>&lt;img&gt;</code> tag (note: no closing tag):</p>
+                    <div class="code-block"><code>&lt;img src="image.jpg" alt="Description"&gt;</code></div>
+
+                    <h3>Lists</h3>
+                    <p>Create organized lists:</p>
+                    <div class="code-block"><code>&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;First&lt;/li&gt;
+  &lt;li&gt;Second&lt;/li&gt;
+&lt;/ol&gt;</code></div>
+
+                    <h3>Buttons</h3>
+                    <p>Create clickable buttons:</p>
+                    <div class="code-block"><code>&lt;button&gt;Click Me!&lt;/button&gt;</code></div>
+
+                    <div class="key-point">
+                        <strong>💡 Tip:</strong> The <code>alt</code> attribute in images is important for accessibility. It describes what the image shows if it can't be displayed.
+                    </div>
+                </div>
+
+                <!-- Lesson 4: CSS Basics -->
+                <div class="lesson" id="css-basics">
+                    <h2>CSS Basics</h2>
+                    <p>CSS (Cascading Style Sheets) is used to style HTML elements and make web pages look beautiful!</p>
+
+                    <h3>What is CSS?</h3>
+                    <p>CSS controls the appearance of HTML elements: colors, sizes, spacing, fonts, and layout.</p>
+
+                    <h3>Three Ways to Use CSS</h3>
+                    <p><strong>1. Inline CSS (in HTML tags):</strong></p>
+                    <div class="code-block"><code>&lt;p style="color: blue; font-size: 18px;"&gt;Blue text&lt;/p&gt;</code></div>
+
+                    <p><strong>2. Internal CSS (in &lt;head&gt; tag):</strong></p>
+                    <div class="code-block"><code>&lt;style&gt;
+  p {
+    color: blue;
+    font-size: 18px;
+  }
+&lt;/style&gt;</code></div>
+
+                    <p><strong>3. External CSS (separate .css file):</strong></p>
+                    <div class="code-block"><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></div>
+
+                    <h3>CSS Syntax</h3>
+                    <p>CSS follows this pattern:</p>
+                    <div class="code-block"><code>selector {
+  property: value;
+  property: value;
+}</code></div>
+
+                    <div class="example-box">
+                        <h4>Example:</h4>
+                        <div class="code-block"><code>h1 {
+  color: red;
+  font-size: 32px;
+  text-align: center;
+}</code></div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>💡 Best Practice:</strong> Use external CSS files for better organization and to keep HTML and styling separate.
+                    </div>
+                </div>
+
+                <!-- Lesson 5: CSS Properties -->
+                <div class="lesson" id="css-properties">
+                    <h2>Common CSS Properties</h2>
+                    <p>Learn the most important CSS properties used to style web pages.</p>
+
+                    <h3>Text Properties</h3>
+                    <div class="code-block"><code>color: red;              /* Text color */
+font-size: 18px;         /* Text size */
+font-family: Arial;      /* Font type */
+font-weight: bold;       /* Text weight */
+text-align: center;      /* Alignment */</code></div>
+
+                    <h3>Background</h3>
+                    <div class="code-block"><code>background-color: blue;   /* Background color */
+background-image: url(); /* Background image */</code></div>
+
+                    <h3>Box Model (Spacing)</h3>
+                    <div class="code-block"><code>margin: 20px;      /* Space outside element */
+padding: 15px;     /* Space inside element */
+border: 2px solid; /* Border around element */
+width: 300px;      /* Element width */
+height: 100px;     /* Element height */</code></div>
+
+                    <h3>Visual Effects</h3>
+                    <div class="code-block"><code>border-radius: 10px;      /* Rounded corners */
+box-shadow: 0 4px 6px;    /* Shadow effect */
+opacity: 0.5;             /* Transparency */</code></div>
+
+                    <div class="interactive-demo">
+                        <h4>Try it: Color your text</h4>
+                        <p>Enter a color name or hex code:</p>
+                        <input type="text" id="colorInput" placeholder="e.g., red, #FF5733" value="blue">
+                        <button class="run-btn" onclick="changeColor()">Apply Color</button>
+                        <div class="demo-output" id="colorDemo" style="color: blue;">
+                            This text changes color based on your input!
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>💡 Tip:</strong> You can use color names (red, blue), hex codes (#FF5733), or RGB values (rgb(255, 0, 0)).
+                    </div>
+                </div>
+
+                <!-- Lesson 6: JavaScript Basics -->
+                <div class="lesson" id="js-basics">
+                    <h2>JavaScript Basics</h2>
+                    <p>JavaScript is a programming language that adds interactivity and logic to web pages!</p>
+
+                    <h3>What is JavaScript?</h3>
+                    <p>JavaScript allows you to make web pages interactive. You can respond to user actions, validate forms, animate elements, and much more!</p>
+
+                    <h3>Adding JavaScript to HTML</h3>
+                    <p><strong>Using &lt;script&gt; tag in HTML:</strong></p>
+                    <div class="code-block"><code>&lt;script&gt;
+  console.log("Hello JavaScript!");
+&lt;/script&gt;</code></div>
+
+                    <h3>Variables</h3>
+                    <p>Variables store data values. Use <code>let</code>, <code>const</code>, or <code>var</code>:</p>
+                    <div class="code-block"><code>let name = "John";
+let age = 25;
+const PI = 3.14;
+var city = "New York";</code></div>
+
+                    <h3>Data Types</h3>
+                    <div class="code-block"><code>let text = "Hello";        // String
+let number = 42;           // Number
+let decimal = 3.14;        // Decimal
+let isTrue = true;         // Boolean
+let nothing = null;        // Null
+let undefined_var;         // Undefined</code></div>
+
+                    <h3>Basic Operations</h3>
+                    <div class="code-block"><code>let x = 10;
+let y = 5;
+
+let sum = x + y;        // Addition: 15
+let difference = x - y; // Subtraction: 5
+let product = x * y;    // Multiplication: 50
+let quotient = x / y;   // Division: 2</code></div>
+
+                    <h3>If Statements</h3>
+                    <p>Make decisions based on conditions:</p>
+                    <div class="code-block"><code>let age = 18;
+
+if (age >= 18) {
+  console.log("You are an adult!");
+} else {
+  console.log("You are a minor.");
+}</code></div>
+
+                    <h3>Functions</h3>
+                    <p>Reusable blocks of code:</p>
+                    <div class="code-block"><code>function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+greet("John");  // Returns "Hello, John!"</code></div>
+
+                    <div class="interactive-demo">
+                        <h4>Try it: Simple Calculator</h4>
+                        <p>
+                            <input type="number" id="num1" placeholder="First number" value="10"> +
+                            <input type="number" id="num2" placeholder="Second number" value="5">
+                        </p>
+                        <button class="run-btn" onclick="addNumbers()">Calculate Sum</button>
+                        <div class="demo-output" id="calcResult"></div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>💡 Tip:</strong> <code>console.log()</code> is used for testing. Open Developer Tools (F12) to see output!
+                    </div>
+                </div>
+
+                <!-- Lesson 7: JavaScript & DOM -->
+                <div class="lesson" id="js-dom">
+                    <h2>JavaScript & the DOM</h2>
+                    <p>The DOM (Document Object Model) allows JavaScript to interact with HTML elements on the page.</p>
+
+                    <h3>What is the DOM?</h3>
+                    <p>The DOM is a representation of your HTML document as a tree of objects. JavaScript can modify this tree to change the page dynamically!</p>
+
+                    <h3>Selecting Elements</h3>
+                    <p>Find HTML elements using JavaScript:</p>
+                    <div class="code-block"><code>// By ID
+document.getElementById("myId");
+
+// By class name
+document.getElementsByClassName("myClass");
+
+// By tag name
+document.getElementsByTagName("p");
+
+// Using CSS selectors
+document.querySelector(".myClass");
+document.querySelectorAll("p");</code></div>
+
+                    <h3>Changing Content</h3>
+                    <div class="code-block"><code>// Change text
+document.getElementById("myId").textContent = "New text";
+
+// Change HTML
+document.getElementById("myId").innerHTML = "&lt;strong&gt;Bold text&lt;/strong&gt;";
+
+// Change style
+document.getElementById("myId").style.color = "red";</code></div>
+
+                    <h3>Event Listeners</h3>
+                    <p>Respond to user actions like clicks:</p>
+                    <div class="code-block"><code>let button = document.getElementById("myButton");
+
+button.addEventListener("click", function() {
+  alert("Button was clicked!");
+});</code></div>
+
+                    <h3>Common Events</h3>
+                    <ul>
+                        <li><code>click</code> - When element is clicked</li>
+                        <li><code>mouseover</code> - When mouse hovers over element</li>
+                        <li><code>mouseout</code> - When mouse leaves element</li>
+                        <li><code>input</code> - When text input changes</li>
+                        <li><code>submit</code> - When form is submitted</li>
+                    </ul>
+
+                    <div class="interactive-demo">
+                        <h4>Try it: Interactive Demo</h4>
+                        <input type="text" id="nameInput" placeholder="Enter your name" value="World">
+                        <button class="run-btn" onclick="updateGreeting()">Update Greeting</button>
+                        <div class="demo-output" id="greetingOutput">
+                            Hello, World!
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>💡 Remember:</strong> JavaScript runs AFTER the HTML is loaded, so place scripts at the end of the body for best practices.
+                    </div>
+                </div>
+
+                <!-- Lesson 8: Quiz -->
+                <div class="lesson" id="quiz">
+                    <h2>Final Quiz</h2>
+                    <p>Test your knowledge! Answer the questions below:</p>
+
+                    <div class="quiz-question">
+                        <p><strong>Question 1:</strong> What does HTML stand for?</p>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" value="wrong1" id="q1a">
+                            <label for="q1a">Hyper Text Modern Language</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" value="correct" id="q1b">
+                            <label for="q1b">HyperText Markup Language</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" value="wrong2" id="q1c">
+                            <label for="q1c">Home Tool Markup Language</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p><strong>Question 2:</strong> Which tag is used for paragraphs?</p>
+                        <div class="quiz-option">
+                            <input type="radio" name="q2" value="wrong1" id="q2a">
+                            <label for="q2a">&lt;text&gt;</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q2" value="correct" id="q2b">
+                            <label for="q2b">&lt;p&gt;</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q2" value="wrong2" id="q2c">
+                            <label for="q2c">&lt;para&gt;</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p><strong>Question 3:</strong> What is CSS used for?</p>
+                        <div class="quiz-option">
+                            <input type="radio" name="q3" value="wrong1" id="q3a">
+                            <label for="q3a">Storing data</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q3" value="correct" id="q3b">
+                            <label for="q3b">Styling and layout</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q3" value="wrong2" id="q3c">
+                            <label for="q3c">Creating animations</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p><strong>Question 4:</strong> Which is the correct JavaScript syntax for a variable?</p>
+                        <div class="quiz-option">
+                            <input type="radio" name="q4" value="wrong1" id="q4a">
+                            <label for="q4a">variable name = "value";</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q4" value="correct" id="q4b">
+                            <label for="q4b">let name = "value";</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q4" value="wrong2" id="q4c">
+                            <label for="q4c">name: "value";</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p><strong>Question 5:</strong> What does DOM stand for?</p>
+                        <div class="quiz-option">
+                            <input type="radio" name="q5" value="wrong1" id="q5a">
+                            <label for="q5a">Digital Object Model</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q5" value="correct" id="q5b">
+                            <label for="q5b">Document Object Model</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q5" value="wrong2" id="q5c">
+                            <label for="q5c">Data Organization Method</label>
+                        </div>
+                    </div>
+
+                    <button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+                    <div class="result" id="quizResult"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🎓 Web Development Learning Hub | Keep practicing and building amazing websites! | © 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const lessons = document.querySelectorAll('.lesson');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lessonId = this.getAttribute('data-lesson');
+                
+                // Remove active class from all buttons and lessons
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                lessons.forEach(lesson => lesson.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding lesson
+                this.classList.add('active');
+                document.getElementById(lessonId).classList.add('active');
+                
+                // Update progress bar
+                updateProgressBar();
+                
+                // Scroll to top
+                document.querySelector('.content').scrollTop = 0;
+            });
+        });
+
+        // Update progress bar
+        function updateProgressBar() {
+            const totalLessons = navButtons.length;
+            const completedLessons = Array.from(navButtons).findIndex(btn => 
+                btn.classList.contains('active')
+            ) + 1;
+            
+            const percentage = (completedLessons / totalLessons) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        // CSS Color Demo
+        function changeColor() {
+            const colorInput = document.getElementById('colorInput').value;
+            const demo = document.getElementById('colorDemo');
+            demo.style.color = colorInput || 'blue';
+        }
+
+        // JavaScript Calculator
+        function addNumbers() {
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
+            const result = num1 + num2;
+            
+            document.getElementById('calcResult').innerHTML = 
+                `<strong>${num1} + ${num2} = ${result}</strong>`;
+        }
+
+        // Update Greeting
+        function updateGreeting() {
+            const name = document.getElementById('nameInput').value || 'World';
+            document.getElementById('greetingOutput').textContent = `Hello, ${name}!`;
+        }
+
+        // Quiz Submission
+        function submitQuiz() {
+            let correct = 0;
+            const totalQuestions = 5;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === 'correct') {
+                    correct++;
+                }
+            }
+            
+            const percentage = (correct / totalQuestions) * 100;
+            const result = document.getElementById('quizResult');
+            
+            if (percentage === 100) {
+                result.className = 'result show correct';
+                result.innerHTML = `<strong>🎉 Perfect Score!</strong> You got all ${correct}/${totalQuestions} questions correct!`;
+            } else if (percentage >= 80) {
+                result.className = 'result show correct';
+                result.innerHTML = `<strong>Great Job!</strong> You got ${correct}/${totalQuestions} correct (${percentage}%).`;
+            } else if (percentage >= 60) {
+                result.className = 'result show correct';
+                result.innerHTML = `<strong>Good effort!</strong> You got ${correct}/${totalQuestions} correct (${percentage}%). Review the lessons and try again!`;
+            } else {
+                result.className = 'result show incorrect';
+                result.innerHTML = `<strong>Keep Learning!</strong> You got ${correct}/${totalQuestions} correct (${percentage}%). Review the lessons and try again!`;
+            }
+        }
+
+        // Initialize
+        updateProgressBar();
+    </script>
+</body>
+</html>

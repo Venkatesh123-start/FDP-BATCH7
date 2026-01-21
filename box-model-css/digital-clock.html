@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <h1 id="clock">Digital clock</h1>
+ 
+    <script>
+ 
+        setInterval(function()
+        {
+ 
+            let d = new Date();
+             let h =d.getHours();
+              let m =d.getMinutes();
+                let s = d.getSeconds();
+ 
+                document.getElementById("clock").innerHTML= h + ":" + m + ":" + s;
+ 
+        },1000 );
+       
+ 
+ 
+    </script>
+   
+</body>
+</html>

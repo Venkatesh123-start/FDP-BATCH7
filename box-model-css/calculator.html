@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1> Calculator</h1>
+ 
+      Number A <input type="text" id="text1"> <br><br>
+        Number B <input type="text" id="text2"> <br><br>
+ 
+        <button onclick="add()">+</button>
+        <button>-</button>
+        <button>*</button>
+        <button>/</button>
+        <br><br>
+ 
+        Result : <input type="text" id="text3">
+ 
+        <script>
+ 
+              function add()
+              {
+                let a =document.getElementById("text1").value;
+              let b = document.getElementById("text2").value;
+ 
+              let c = Number(a) + Number(b);
+ 
+              document.getElementById("text3").value = c;
+              }
+ 
+        </script>
+ 
+ 
+   
+</body>
+</html>

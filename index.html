@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+
+        <fieldset>
+
+            <legend>Personal Information</legend>
+
+            <label>Full Name</label> 
+            <input type="text" placeholder="Enter your full name" required><br><br>
+            
+            <label>Email</label> 
+            <input type="email" placeholder="Enter your email" required><br><br>
+            
+            <label>Phone Number</label> 
+            <input type="tel" placeholder="Enter your phone number" required><br><br>
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Professional Details</legend>
+
+            <label>Your Skills</label> <br>
+            <textarea rows="4" cols="50" placeholder="List your technical skills here..." required></textarea><br><br>
+
+            <label>Exp Level</label>
+            <select required>
+                <option value="" disabled selected>Select your experience level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="expert">Expert</option>
+            </select>
+            <br><br> 
+        </fieldset>
+
+        <fieldset>
+            <legend>Portfolio Details</legend>
+
+            <label> Project titles </label>
+
+            <input type="text" placeholder="Enter your project titles" required><br><br>
+ 
+            <label >project description</label> <br>
+            <textarea rows="4" cols="30" placeholder="enter project des"></textarea> <br><br>
+       
+             <label > upload the project</label> <br>
+             <input type="file">
+             <br><br>
+ 
+             <label > github url</label>
+             <input type="url" placeholder="enter github url"> <br><br>
+ 
+        </fieldset>
+  
+        <input type="submit" value="Submit">
+        <input type="reset" value="reset">
+
+    </form>
+</body>
+</html>

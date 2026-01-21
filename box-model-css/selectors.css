@@ -1,0 +1,239 @@
+/* Universal Selector - Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Element Selector */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #d32f2f;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 1. Element Selector - Targeting all p elements */
+p {
+    color: #7c4dff;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+/* 2. Class Selector - Targets elements with class="highlight" */
+.highlight {
+    background-color: yellow;
+    padding: 15px;
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 3. ID Selector - Targets element with id="special" */
+#special {
+    border: 3px solid blue;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 5px;
+}
+
+#special p {
+    color: green;
+    font-style: italic;
+}
+
+/* 4. Descendant Selector - Targets p elements inside div elements */
+div.container p {
+    color: green;
+    font-style: italic;
+    border-left: 4px solid green;
+    padding-left: 15px;
+}
+
+/* 5. Child Selector - Targets p elements that are direct children of body */
+body > p {
+    color: purple;
+    font-weight: bold;
+    background-color: #f3e5f5;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px dashed purple;
+}
+
+/* 6. Adjacent Sibling Selector - Targets p immediately after h2 */
+h2 + p {
+    color: #ff6f00;
+    font-weight: bold;
+    background-color: #fff3e0;
+    padding: 10px;
+    border-left: 5px solid #ff6f00;
+}
+
+/* 7. General Sibling Selector - Targets all p elements that are siblings of h2 */
+h2 ~ p.sibling-demo {
+    color: #00897b;
+    background-color: #e0f2f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 8. Attribute Selector - Targets elements with specific attributes */
+a[target="_blank"] {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #e3f2fd;
+    border-radius: 3px;
+}
+
+a[target="_blank"]:hover {
+    background-color: #1976d2;
+    color: white;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid #9c27b0;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+input[type="email"] {
+    padding: 10px;
+    border: 2px solid #ff5722;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #fff3e0;
+}
+
+/* 9. Pseudo-class Selector */
+.hover-demo:hover {
+    background-color: #ffeb3b;
+    color: #000;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+ul li:first-child {
+    color: #4caf50;
+    font-weight: bold;
+    background-color: #e8f5e9;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+ul li:last-child {
+    color: #f44336;
+    font-weight: bold;
+    background-color: #ffebee;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+ul li {
+    margin: 5px 0;
+    list-style-position: inside;
+}
+
+/* 10. Pseudo-element Selector */
+.first-letter-demo::first-letter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e91e63;
+    float: left;
+    line-height: 1;
+    margin-right: 5px;
+}
+
+.before-after-demo::before {
+    content: "➤ ";
+    color: #2196f3;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.before-after-demo::after {
+    content: " ✓";
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 11. Universal Selector in specific context */
+.universal-demo * {
+    border: 1px dashed #9c27b0;
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #f3e5f5;
+}
+
+/* 12. Grouping Selector - Multiple selectors with same style */
+h3, h4 {
+    color: #00796b;
+    background-color: #e0f2f1;
+    padding: 10px;
+    border-left: 5px solid #00796b;
+    margin: 10px 0;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+}
+
+footer p {
+    color: white;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 15px;
+    }
+}

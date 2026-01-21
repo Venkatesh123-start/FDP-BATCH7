@@ -1,0 +1,267 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Table Container */
+.table-container {
+    padding: 30px;
+    overflow-x: auto;
+}
+
+/* Table Styles */
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.employee-table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.employee-table thead th {
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.employee-table tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.employee-table tbody tr:hover {
+    background: linear-gradient(to right, #f8f9ff, #fff);
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.employee-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.employee-table tbody td {
+    padding: 16px 15px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.employee-table tbody td:first-child {
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* Status Badges */
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status.active {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.status.inactive {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+/* Hover Effects */
+.employee-table tbody td {
+    position: relative;
+}
+
+.employee-table tbody tr:hover td {
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .employee-table {
+        font-size: 0.9em;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 25px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .table-container {
+        padding: 15px;
+    }
+
+    .employee-table thead {
+        display: none;
+    }
+
+    .employee-table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .employee-table tbody tr:hover {
+        transform: scale(1);
+    }
+
+    .employee-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 15px;
+        border-bottom: 1px solid #f0f0f0;
+        text-align: right;
+    }
+
+    .employee-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .employee-table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #667eea;
+        text-align: left;
+        margin-right: 10px;
+        flex: 1;
+    }
+
+    .employee-table tbody td:first-child {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: 700;
+    }
+
+    .employee-table tbody td:first-child::before {
+        color: white;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.employee-table tbody tr {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.employee-table tbody tr:nth-child(1) { animation-delay: 0.05s; }
+.employee-table tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.employee-table tbody tr:nth-child(3) { animation-delay: 0.15s; }
+.employee-table tbody tr:nth-child(4) { animation-delay: 0.2s; }
+.employee-table tbody tr:nth-child(5) { animation-delay: 0.25s; }
+.employee-table tbody tr:nth-child(6) { animation-delay: 0.3s; }
+.employee-table tbody tr:nth-child(7) { animation-delay: 0.35s; }
+.employee-table tbody tr:nth-child(8) { animation-delay: 0.4s; }
+.employee-table tbody tr:nth-child(9) { animation-delay: 0.45s; }
+.employee-table tbody tr:nth-child(10) { animation-delay: 0.5s; }
+
+/* Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}

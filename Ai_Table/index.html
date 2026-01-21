@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Employee Management System</h1>
+            <p class="subtitle">Professional Employee Directory</p>
+        </header>
+
+        <div class="table-container">
+            <table class="employee-table">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Join Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Employee ID">EMP001</td>
+                        <td data-label="Name">John Smith</td>
+                        <td data-label="Designation">Senior Manager</td>
+                        <td data-label="Department">Operations</td>
+                        <td data-label="Salary">$95,000</td>
+                        <td data-label="Email">john.smith@company.com</td>
+                        <td data-label="Phone">+1 234-567-8901</td>
+                        <td data-label="Join Date">Jan 15, 2020</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP002</td>
+                        <td data-label="Name">Sarah Johnson</td>
+                        <td data-label="Designation">HR Director</td>
+                        <td data-label="Department">Human Resources</td>
+                        <td data-label="Salary">$88,000</td>
+                        <td data-label="Email">sarah.j@company.com</td>
+                        <td data-label="Phone">+1 234-567-8902</td>
+                        <td data-label="Join Date">Mar 22, 2019</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP003</td>
+                        <td data-label="Name">Michael Chen</td>
+                        <td data-label="Designation">Lead Developer</td>
+                        <td data-label="Department">IT</td>
+                        <td data-label="Salary">$92,000</td>
+                        <td data-label="Email">m.chen@company.com</td>
+                        <td data-label="Phone">+1 234-567-8903</td>
+                        <td data-label="Join Date">Jul 10, 2021</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP004</td>
+                        <td data-label="Name">Emily Davis</td>
+                        <td data-label="Designation">Marketing Manager</td>
+                        <td data-label="Department">Marketing</td>
+                        <td data-label="Salary">$78,000</td>
+                        <td data-label="Email">emily.d@company.com</td>
+                        <td data-label="Phone">+1 234-567-8904</td>
+                        <td data-label="Join Date">Sep 05, 2020</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP005</td>
+                        <td data-label="Name">Robert Williams</td>
+                        <td data-label="Designation">Financial Analyst</td>
+                        <td data-label="Department">Finance</td>
+                        <td data-label="Salary">$72,000</td>
+                        <td data-label="Email">r.williams@company.com</td>
+                        <td data-label="Phone">+1 234-567-8905</td>
+                        <td data-label="Join Date">Nov 18, 2021</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP006</td>
+                        <td data-label="Name">Lisa Anderson</td>
+                        <td data-label="Designation">UI/UX Designer</td>
+                        <td data-label="Department">Design</td>
+                        <td data-label="Salary">$68,000</td>
+                        <td data-label="Email">lisa.a@company.com</td>
+                        <td data-label="Phone">+1 234-567-8906</td>
+                        <td data-label="Join Date">Feb 14, 2022</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP007</td>
+                        <td data-label="Name">David Martinez</td>
+                        <td data-label="Designation">Sales Executive</td>
+                        <td data-label="Department">Sales</td>
+                        <td data-label="Salary">$65,000</td>
+                        <td data-label="Email">d.martinez@company.com</td>
+                        <td data-label="Phone">+1 234-567-8907</td>
+                        <td data-label="Join Date">Apr 28, 2021</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP008</td>
+                        <td data-label="Name">Jennifer Taylor</td>
+                        <td data-label="Designation">Product Manager</td>
+                        <td data-label="Department">Product</td>
+                        <td data-label="Salary">$85,000</td>
+                        <td data-label="Email">jennifer.t@company.com</td>
+                        <td data-label="Phone">+1 234-567-8908</td>
+                        <td data-label="Join Date">Jun 12, 2020</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP009</td>
+                        <td data-label="Name">James Wilson</td>
+                        <td data-label="Designation">Data Analyst</td>
+                        <td data-label="Department">Analytics</td>
+                        <td data-label="Salary">$70,000</td>
+                        <td data-label="Email">james.w@company.com</td>
+                        <td data-label="Phone">+1 234-567-8909</td>
+                        <td data-label="Join Date">Aug 20, 2022</td>
+                        <td data-label="Status"><span class="status inactive">On Leave</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Employee ID">EMP010</td>
+                        <td data-label="Name">Amanda Brown</td>
+                        <td data-label="Designation">Customer Support Lead</td>
+                        <td data-label="Department">Support</td>
+                        <td data-label="Salary">$62,000</td>
+                        <td data-label="Email">amanda.b@company.com</td>
+                        <td data-label="Phone">+1 234-567-8910</td>
+                        <td data-label="Join Date">Dec 03, 2021</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Employee Management System. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

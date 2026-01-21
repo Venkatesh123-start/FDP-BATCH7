@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Demonstration</title>
+    <link rel="stylesheet" href="selectors.css">
+</head>
+<body>
+    <header>
+        <h1>CSS Selectors Demonstration</h1>
+    </header>
+
+    <main>
+        <!-- 1. Element Selector -->
+        <section>
+            <h2>1. Element Selector</h2>
+            <p>This paragraph is styled using the element selector 'p'.</p>
+        </section>
+
+        <!-- 2. Class Selector -->
+        <section>
+            <h2>2. Class Selector</h2>
+            <p class="highlight">This paragraph uses the .highlight class selector.</p>
+        </section>
+
+        <!-- 3. ID Selector -->
+        <section>
+            <h2>3. ID Selector</h2>
+            <div id="special">
+                <p>This is a paragraph inside a div with ID 'special'. This demonstrates the ID selector #special.</p>
+            </div>
+        </section>
+
+        <!-- 4. Descendant Selector -->
+        <section>
+            <h2>4. Descendant Selector (div p)</h2>
+            <div class="container">
+                <p>This paragraph is inside a div, styled with descendant selector 'div p'.</p>
+            </div>
+        </section>
+
+        <!-- 5. Child Selector -->
+        <section>
+            <h2>5. Child Selector (body > p)</h2>
+        </section>
+        <p>This is a direct child of body, styled with child selector 'body > p'.</p>
+
+        <!-- 6. Adjacent Sibling Selector -->
+        <section>
+            <h2>6. Adjacent Sibling Selector (h2 + p)</h2>
+            <p>This paragraph immediately follows an h2, styled with adjacent sibling selector.</p>
+        </section>
+
+        <!-- 7. General Sibling Selector -->
+        <section>
+            <h2>7. General Sibling Selector (h2 ~ p)</h2>
+            <p>This is a sibling of h2.</p>
+            <div>Some content in between</div>
+            <p class="sibling-demo">This is also a sibling of h2, styled with general sibling selector.</p>
+        </section>
+
+        <!-- 8. Attribute Selector -->
+        <section>
+            <h2>8. Attribute Selector</h2>
+            <a href="https://example.com" target="_blank">This link uses attribute selector [target="_blank"]</a>
+            <br><br>
+            <input type="text" placeholder="Text input">
+            <input type="email" placeholder="Email input styled differently">
+        </section>
+
+        <!-- 9. Pseudo-class Selector -->
+        <section>
+            <h2>9. Pseudo-class Selector</h2>
+            <p class="hover-demo">Hover over this paragraph to see the :hover pseudo-class effect.</p>
+            <ul>
+                <li>First item (styled with :first-child)</li>
+                <li>Second item</li>
+                <li>Last item (styled with :last-child)</li>
+            </ul>
+        </section>
+
+        <!-- 10. Pseudo-element Selector -->
+        <section>
+            <h2>10. Pseudo-element Selector</h2>
+            <p class="first-letter-demo">This paragraph has a styled first letter using ::first-letter pseudo-element.</p>
+            <p class="before-after-demo">This paragraph has content added before and after using ::before and ::after.</p>
+        </section>
+
+        <!-- 11. Universal Selector -->
+        <section>
+            <h2>11. Universal Selector (*)</h2>
+            <div class="universal-demo">
+                <p>Universal selector affects all elements.</p>
+                <span>Including this span.</span>
+                <div>And this div.</div>
+            </div>
+        </section>
+
+        <!-- 12. Grouping Selector -->
+        <section>
+            <h2>12. Grouping Selector</h2>
+            <h3>Grouped Heading 3</h3>
+            <h4>Grouped Heading 4</h4>
+            <p>h3 and h4 above are styled together using grouping selector 'h3, h4'.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CSS Selectors Demo</p>
+    </footer>
+</body>
+</html>
+ 
