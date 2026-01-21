@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B Venkatesh — AI/ML & Web Developer</title>
+  <meta name="description" content="B Venkatesh portfolio — final-year CSE student at CMR University, AI/ML enthusiast, and web developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">B Venkatesh</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Switch theme">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-label">Theme</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="container">
+      <h1>Hi, I'm B Venkatesh</h1>
+      <p class="subtitle">Final-year CSE @ CMR University · AI/ML enthusiast and web developer building useful experiences.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn ghost" href="https://github.com/Venkatesh123-start" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn ghost" href="https://linkedin.com/in/b-venkatesh-765935278" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">193+</div>
+          <div class="stat-label">GitHub Contributions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">17+</div>
+          <div class="stat-label">Repositories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Tech Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>AI/ML</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">GPT-2</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">NLP</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Web & Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+      </div>
+      <div class="grid">
+        <article class="card project-card" data-category="web ai">
+          <div class="card-header">
+            <h3>Pro Fun Fact Generator</h3>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">GenAI</span>
+            </div>
+          </div>
+          <p>GenAI prompted web app that serves curated fun facts with a clean UI and playful UX.</p>
+          <a class="link" href="https://github.com/Venkatesh123-start/Pro-Fun-Fact-Generator" target="_blank" rel="noreferrer">
+            View on GitHub →
+          </a>
+        </article>
+        <article class="card project-card" data-category="ai">
+          <div class="card-header">
+            <h3>Text Generation with GPT-2</h3>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">NLP</span>
+              <span class="tag">GPT-2</span>
+            </div>
+          </div>
+          <p>Fine-tuned GPT-2 pipeline for custom text generation, including preprocessing and evaluation.</p>
+          <a class="link" href="https://github.com/Venkatesh123-start/Text-Generation-using-GPT-2-" target="_blank" rel="noreferrer">
+            View on GitHub →
+          </a>
+        </article>
+        <article class="card project-card" data-category="ai">
+          <div class="card-header">
+            <h3>Potato Leaf Disease Detection</h3>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">CV</span>
+              <span class="tag">Jupyter</span>
+            </div>
+          </div>
+          <p>AICTE internship project using computer vision to classify leaf diseases and assist farmers.</p>
+          <a class="link" href="https://github.com/Venkatesh123-start/AICTE-Intern_Project-Potato_Leaf_disease" target="_blank" rel="noreferrer">
+            View on GitHub →
+          </a>
+        </article>
+        <article class="card project-card" data-category="web ai">
+          <div class="card-header">
+            <h3>Smart Dev Productivity Hub</h3>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">GenAI</span>
+            </div>
+          </div>
+          <p>AI-powered dashboard for developer productivity, built with GenAI and Pieces Copilot.</p>
+          <a class="link" href="https://github.com/Venkatesh123-start/Smart-Dev-Productivity-Hub" target="_blank" rel="noreferrer">
+            View on GitHub →
+          </a>
+        </article>
+        <article class="card project-card" data-category="ai">
+          <div class="card-header">
+            <h3>Rubik's Cube Solver</h3>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">BFS</span>
+            </div>
+          </div>
+          <p>An algorithmic approach using breadth-first search to solve the classic Rubik's cube puzzle.</p>
+          <a class="link" href="https://github.com/Venkatesh123-start/Rubix-s-Cube" target="_blank" rel="noreferrer">
+            View on GitHub →
+          </a>
+        </article>
+        <article class="card project-card" data-category="game web">
+          <div class="card-header">
+            <h3>NeoN Snake Game</h3>
+            <div class="project-tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Game</span>
+            </div>
+          </div>
+          <p>Modern take on the classic snake game with neon aesthetics and smooth gameplay.</p>
+          <a class="link" href="https://github.com/Venkatesh123-start/NeoN_Snake" target="_blank" rel="noreferrer">
+            View on GitHub →
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I'm a final-year Computer Science Engineering student at <strong>CMR University</strong>, Bangalore, passionate about AI/ML and web development. I love building end-to-end solutions—from quick prototypes to polished products that solve real problems.</p>
+          <p>Currently exploring generative AI, computer vision, and full-stack development. Always eager to learn new technologies and collaborate on innovative projects.</p>
+        </div>
+        <div class="education-card">
+          <h3>🎓 Education</h3>
+          <div class="edu-item">
+            <div class="edu-title">B.Tech in Computer Science</div>
+            <div class="edu-school">CMR University, Bangalore</div>
+            <div class="edu-year">2022 - 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="achievements">
+        <h3>🏆 Achievements & Activities</h3>
+        <ul class="achievement-list">
+          <li>AICTE Internship: Potato Leaf Disease Detection using Computer Vision</li>
+          <li>Active contributor on LeetCode, Coding Ninjas, and Kaggle</li>
+          <li>15 followers on GitHub with 193+ contributions in the last year</li>
+          <li>Built multiple AI/ML and web development projects</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Interested in collaborating or chatting about AI projects? Find me on GitHub or LinkedIn.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://linkedin.com/in/b-venkatesh-765935278" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+        <a class="btn" href="https://github.com/Venkatesh123-start" target="_blank" rel="noreferrer">GitHub profile</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> B Venkatesh. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
